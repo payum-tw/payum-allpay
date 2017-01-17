@@ -124,7 +124,7 @@ class Api
         $api->SendExtend['InvType'] = InvType::General;
         */
 
-        return $this->api->CheckOut();
+        return $this->api->formToArray($this->api->CheckOutString());
     }
 
     /**
@@ -183,9 +183,7 @@ class Api
             $this->api->ServiceURL = $this->getApiEndpoint('QueryTradeInfo');
             $this->api->Query['MerchantTradeNo'] = $params['MerchantTradeNo'];
             $details = $this->api->QueryTradeInfo();
-            if (empty($details['RtnCode']) === true) {
-                $details['RtnCode'] = '1';
-            }
+            $details['RtnCode'] = $details['TradeStatus'] === '1' ? '1' : '2';
         }
 
         return $details;

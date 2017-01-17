@@ -96,7 +96,8 @@ class ApiTest extends PHPUnit_Framework_TestCase
         $this->assertSame($options['MerchantID'], $sdk->MerchantID);
         $this->assertSame($api->getApiEndpoint('AioCheckOut'), $sdk->ServiceURL);
         $this->assertSame($params['ReturnURL'], $sdk->Send['ReturnURL']);
-        $sdk->shouldHaveReceived('CheckOut')->once();
+        $sdk->shouldHaveReceived('CheckOutString')->once();
+        $sdk->shouldHaveReceived('formToArray')->once();
     }
 
     public function test_cancel_transaction()

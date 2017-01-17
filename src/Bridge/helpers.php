@@ -3,6 +3,8 @@
 $classes = [
     'ActionType',
     'CarruerType',
+    'CheckMacValue',
+    'CheckOutFeedback',
     'ClearanceMark',
     'DeviceType',
     'Donation',
@@ -14,6 +16,7 @@ $classes = [
     'PaymentMethodItem',
     'PeriodType',
     'PrintMark',
+    'Send',
     'TaxType',
     'UseRedeem',
 ];
